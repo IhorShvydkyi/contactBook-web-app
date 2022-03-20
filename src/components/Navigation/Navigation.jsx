@@ -1,15 +1,16 @@
-import { NavLink } from 'react-router-dom';
-import s from './Navigation.module.css';
+import { Nav, NavList, NavListItem, NavigationLink } from './Navigation.styled';
 
-export default function Navigation() {
+export const Navigation = () => {
   return (
-    <nav>
-      <NavLink
-        to=""
-        className={({ isActive }) => (isActive ? s.active : s.link)}
-      >
-        Home
-      </NavLink>
-    </nav>
+    <Nav>
+      <NavList>
+        <NavListItem>
+          <NavigationLink to="/">Home</NavigationLink>
+        </NavListItem>
+        <NavListItem>
+          <NavigationLink to="/contacts">Contacts</NavigationLink>
+        </NavListItem>
+      </NavList>
+    </Nav>
   );
-}
+};

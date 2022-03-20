@@ -2,10 +2,20 @@
 
 <!-- Navigation (Home(left) LogIn/Register(right)) -->
 
-<!-- Home only text -->
+<!-- AppBar
+	1. => App.js
+ -->
+
+<!-- Navigation
+	1. => AppBar
+ -->
+
+<!-- Home only text
+	1. => Navigation
+ -->
 
 <!-- LogIn
-	1. form for login
+	1. form for login => LoginPage => Navigation
 	2. redirect to contatcs
 	3. after login register not vissible
 	4. "hi, {name}, log out button
@@ -13,7 +23,7 @@
  -->
 
  <!-- Register
-	1. form for register
+	1. form for register => RegisterPage => Navigation
 	2. redirect to contatcs	
 	3. after register, login not vissible
 	4. "hi, {name}, log out button	

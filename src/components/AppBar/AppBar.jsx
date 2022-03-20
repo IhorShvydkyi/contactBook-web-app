@@ -1,10 +1,12 @@
-import Navigation from '../Navigation/Navigation';
-import s from './Appbar.module.css';
+import { AuthNavavigation } from 'components/AuthNav/AuthNavigation';
+import { Navigation } from 'components/Navigation/Navigation';
+import { AppBarStyled } from './AppBar.styled';
 
-export default function Appbar() {
+export const AppBar = () => {
   return (
-    <header className={s.header}>
+    <AppBarStyled>
       <Navigation />
-    </header>
+      <AuthNavavigation />
+    </AppBarStyled>
   );
-}
+};

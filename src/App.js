@@ -1,38 +1,23 @@
+import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import Loader from 'react-loader-spinner';
-import AppBar from './components/AppBar/AppBar';
+// import { ToastContainer } from 'react-toastify';
+// import Loader from 'react-loader-spinner';
+import { AppBar } from 'components/AppBar/AppBar';
+import { HomePageView } from 'pages/HomePage/HomePageView';
+import { LogInPage } from 'pages/LogInPage/LogInPage';
 import './App.css';
 
-const HomeView = lazy(() =>
-  import(
-    './pages/HomePageView/HomeView.jsx' /* webpackChunkName: "HomeView" */
-  ),
-);
+export const App = () => {
+  // const { LogInPage } = lazy(() => import('./pages/LogInPage/LogInPage'));
 
-export default function App() {
   return (
-    <>
-      <AppBar />
-
-      <Suspense
-        fallback={
-          <Loader
-            type="Puff"
-            color="#00BFFF"
-            height={100}
-            width={100}
-            timeout={3000}
-          />
-        }
-      >
-        <Routes>
-          <Route path="" element={<HomeView />} />
-        </Routes>
-      </Suspense>
-
-      <ToastContainer />
-    </>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<AppBar />}></Route>
+        <Route path="/" element={<HomePageView />}></Route>
+        <Route path="logIn" element={<LogInPage />}></Route>
+      </Routes>
+    </Suspense>
+    // <ToastContainer />
   );
-}
+};
