@@ -1,15 +1,17 @@
+import { Form, Label } from '../Forms.styled';
+
 export const RegisterForm = () => {
   return (
-    <form>
-      <label htmlFor="name">Name</label>
+    <Form>
+      <Label htmlFor="name">Name</Label>
       <input type="text" name="login" placeholder="input your name" />
-      <label htmlFor="login">Login</label>
+      <Label htmlFor="login">Login</Label>
       <input type="text" name="login" placeholder="input your login" />
 
-      <label htmlFor="password">Password</label>
+      <Label htmlFor="password">Password</Label>
       <input type="text" name="password" placeholder="input your password" />
 
       <button type="submit">Log in</button>
-    </form>
+    </Form>
   );
 };

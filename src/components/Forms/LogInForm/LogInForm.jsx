@@ -1,13 +1,15 @@
+import { Form, Label } from '../Forms.styled';
+
 export const LogInForm = () => {
   return (
-    <form>
-      <label htmlFor="login">Login</label>
+    <Form>
+      <Label htmlFor="login">Login</Label>
       <input type="text" name="login" placeholder="input your login" />
 
-      <label htmlFor="password">Password</label>
+      <Label htmlFor="password">Password</Label>
       <input type="text" name="password" placeholder="input your password" />
 
       <button type="submit">Log in</button>
-    </form>
+    </Form>
   );
 };
