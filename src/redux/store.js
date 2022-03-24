@@ -19,11 +19,12 @@ const middleware = [
     },
   }),
 ];
-const authPersistConfig = { key: 'auth', storage };
+// const authPersistConfig = { key: 'auth', storage };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    // auth: persistReducer(authPersistConfig, authReducer),
+    auth: authReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
