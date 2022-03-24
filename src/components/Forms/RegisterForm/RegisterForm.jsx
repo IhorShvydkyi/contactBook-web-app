@@ -57,7 +57,7 @@ export const RegisterForm = () => {
         />
       </Label>
 
-      <button type="submit">Sing up</button>
+      <button type="submit">Sign up</button>
     </Form>
   );
 };

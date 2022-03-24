@@ -37,3 +37,6 @@
 	/register => redirect to contacts
 	/contacts => after logout redirect to home
   -->
+<!-- email: "igorshvydky35@gmail.com"
+name: "igorshvydky"
+password: "wxda3535" -->
