@@ -7,7 +7,7 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { HomePage } from 'pages/HomePage/HomePage';
 import { LogInPage } from 'pages/LogInPage/LogInPage';
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
-import './App.css';
+import { ContactsPage } from 'pages/ContactsPage/ContactsPage';
 
 export const App = () => {
   // const { LogInPage } = lazy(() => import('./pages/LogInPage/LogInPage'));
@@ -21,6 +21,7 @@ export const App = () => {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="logIn" element={<LogInPage />}></Route>
             <Route path="register" element={<RegisterPage />}></Route>
+            <Route path="contacts" element={<ContactsPage />}></Route>
           </Routes>
         </Suspense>
         {/* // <ToastContainer /> */}
