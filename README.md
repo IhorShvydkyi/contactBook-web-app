@@ -43,3 +43,16 @@ password: "wxda3535" -->
 
 <!-- email: "qweqwe@mail.com"
 password: "qweqwe123" -->
+
+1. redirect : login => contacts (loginform) / register => contacts
+   (registerform) / logout => home (after logout button click)
+
+2. contacts list - відображення при фетчі та після створення
+
+3. delete contact - make function on delet button click
+
+4. direct current contact - make slice
+
+5. persist set
+
+6. refrech current contact
