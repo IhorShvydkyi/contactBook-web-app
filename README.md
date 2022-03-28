@@ -44,8 +44,8 @@ password: "wxda3535" -->
 <!-- email: "qweqwe@mail.com"
 password: "qweqwe123" -->
 
-1. redirect : login => contacts (loginform) / register => contacts
-   (registerform) / logout => home (after logout button click)
+<!-- 1. redirect : login => contacts (loginform) / register => contacts
+   (registerform) / logout => home (after logout button click) -->
 
 2. contacts list - відображення при фетчі та після створення
 

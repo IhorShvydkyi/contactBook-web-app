@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import { authOperations } from 'redux/auth';
 import { Form, Label } from '../Forms.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,6 +30,7 @@ export const RegisterForm = () => {
     setName('');
     setEmail('');
     setPassword('');
+    // navigate('/contacts', { replace: true });
   };
 
   return (

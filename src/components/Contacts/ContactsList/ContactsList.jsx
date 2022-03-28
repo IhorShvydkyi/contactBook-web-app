@@ -5,7 +5,7 @@ import {
   useDeleteContactMutation,
 } from '../../../redux/contacts/contacts-slice';
 // import Spinner from '../Spinner/Spinner';
-import { ContactListStyled, ContactItem, Number } from './ContactsList.styled';
+// import { ContactListStyled, ContactItem, Number } from './ContactsList.styled';
 
 export const ContactsList = () => {
   const filter = useSelector(getFilter);
@@ -22,18 +22,18 @@ export const ContactsList = () => {
     <>
       {/* {isFetching && <Spinner />} */}
       {contacts && (
-        <ContactListStyled>
+        <ul>
           {contactFilterList.map(item => (
-            <ContactItem key={item.id}>
-              <Number>
-                {item.name}: {item.phone}
-              </Number>
+            <li key={item.id}>
+              <span>
+                {item.name}: {item.number}
+              </span>
               <button type="button" onClick={() => deleteContact(item.id)}>
                 Delete
               </button>
-            </ContactItem>
+            </li>
           ))}
-        </ContactListStyled>
+        </ul>
       )}
     </>
   );

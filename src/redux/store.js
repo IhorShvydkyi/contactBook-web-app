@@ -20,12 +20,12 @@ const middleware = [
     },
   }),
 ];
-// const authPersistConfig = { key: 'auth', storage };
+const authPersistConfig = { key: 'auth', storage, whitelist: ['token'] };
 
 export const store = configureStore({
   reducer: {
-    // auth: persistReducer(authPersistConfig, authReducer),
-    auth: authReducer,
+    auth: persistReducer(authPersistConfig, authReducer),
+    // auth: authReducer,
     contacts: contactsReducer,
     [contactApi.reducerPath]: contactApi.reducer,
   },

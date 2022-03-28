@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
 // import { ToastContainer } from 'react-toastify';
 // import Loader from 'react-loader-spinner';
@@ -8,10 +10,14 @@ import { HomePage } from 'pages/HomePage/HomePage';
 import { LogInPage } from 'pages/LogInPage/LogInPage';
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
 import { ContactsPage } from 'pages/ContactsPage/ContactsPage';
+import { authOperations } from 'redux/auth';
 
 export const App = () => {
+  const dispatch = useDispatch();
   // const { LogInPage } = lazy(() => import('./pages/LogInPage/LogInPage'));
-
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
   return (
     <>
       <Container>

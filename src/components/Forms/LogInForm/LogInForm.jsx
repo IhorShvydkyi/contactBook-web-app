@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 import { authOperations } from 'redux/auth';
 import { Form, Label } from '../Forms.styled';
 
 export const LogInForm = () => {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,6 +26,7 @@ export const LogInForm = () => {
     dispatch(authOperations.login({ email, password }));
     setEmail('');
     setPassword('');
+    // navigate('/contacts', { replace: true });
   };
 
   return (
