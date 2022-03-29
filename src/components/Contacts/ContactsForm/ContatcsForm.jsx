@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Form, Label } from './ContactsForm.styled';
+import { Form, Label } from '../../Forms/Forms.styled';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
