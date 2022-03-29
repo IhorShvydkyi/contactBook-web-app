@@ -11,8 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
-import contactsReducer from './contacts/contacts-reducer';
-import { contactApi } from './contacts/contacts-slice';
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
@@ -25,9 +23,6 @@ const authPersistConfig = { key: 'auth', storage, whitelist: ['token'] };
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // auth: authReducer,
-    contacts: contactsReducer,
-    [contactApi.reducerPath]: contactApi.reducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

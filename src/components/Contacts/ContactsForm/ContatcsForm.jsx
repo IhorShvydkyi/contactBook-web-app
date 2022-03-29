@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import {
-  useFetchContactsQuery,
-  useCreateContactMutation,
-} from '../../../redux/contacts/contacts-slice';
+
 import { Form, Label } from './ContactsForm.styled';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [createContact] = useCreateContactMutation();
-  const { data: contacts } = useFetchContactsQuery();
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -33,7 +28,6 @@ export const ContactsForm = () => {
     //   return;
     // }
 
-    createContact({ name, number });
     setName('');
     setNumber('');
   };

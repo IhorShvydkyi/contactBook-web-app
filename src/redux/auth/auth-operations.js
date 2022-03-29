@@ -19,7 +19,7 @@ const register = createAsyncThunk('auth/register', async credentials => {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    // TODO: Добавить обработку ошибки error.message
   }
 });
 const login = createAsyncThunk('auth/login', async credentials => {
@@ -29,7 +29,7 @@ const login = createAsyncThunk('auth/login', async credentials => {
     // console.log(data);
     return data;
   } catch (error) {
-    console.log(error);
+    // TODO: Добавить обработку ошибки error.message
   }
 });
 
@@ -55,7 +55,9 @@ const fetchCurrentUser = createAsyncThunk(
     try {
       const { data } = await axios.get('/users/current');
       return data;
-    } catch (error) {}
+    } catch (error) {
+      // TODO: Добавить обработку ошибки error.message
+    }
   },
 );
 

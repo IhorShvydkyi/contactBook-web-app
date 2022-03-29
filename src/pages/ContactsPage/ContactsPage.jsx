@@ -3,9 +3,11 @@ import { ContactsForm } from '../../components/Contacts/ContactsForm/ContatcsFor
 
 export const ContactsPage = () => {
   return (
-    <>
-      <ContactsForm />
-      <ContactsList />
-    </>
+    <div>
+      {' '}
+      contacts
+      {/* <ContactsForm />
+      <ContactsList /> */}
+    </div>
   );
 };
