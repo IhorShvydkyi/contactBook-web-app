@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
-import { getContacts } from 'redux/contacts/contacts-selectors';
 
 import { Form, Label } from '../../Forms/Forms.styled';
 
@@ -9,11 +8,14 @@ export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const items = useSelector(state => state.contacts.items);
+  const user = useSelector(state => state.auth.user);
 
   useEffect(() => {
-    dispatch(contactsOperations.fetchContacts());
-  }, [dispatch]);
+    if (user.email) {
+      dispatch(contactsOperations.fetchContacts());
+    }
+  }, [dispatch, user]);
 
   const handleChange = e => {
     switch (e.target.name) {
@@ -29,6 +31,13 @@ export const ContactsForm = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
+    const nameToAdd = items.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase(),
+    );
+    // console.log(nameToAdd);
+    if (nameToAdd) {
+      return alert(`${name} is already in contacts.`);
+    }
 
     // if (contacts.find(contact => contact.name === name)) {
     //   // toast(`Contact ${name} is already exists`);
@@ -36,7 +45,7 @@ export const ContactsForm = () => {
     //   setNumber('');
     //   return;
     // }
-
+    dispatch(contactsOperations.addContact({ name, number }));
     setName('');
     setNumber('');
   };
