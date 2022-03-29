@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { AuthNavavigation } from 'components/AuthNav/AuthNavigation';
-import { Navigation } from 'components/Navigation/Navigation';
-import { UserMenu } from 'components/UserMenu/UserMenu';
+import { AuthNavavigation } from 'components/AppBar/AuthNav/AuthNavigation';
+import { Navigation } from 'components/AppBar/Navigation/Navigation';
+import { UserMenu } from 'components/AppBar/UserMenu/UserMenu';
 import { AppBarStyled } from './AppBar.styled';
 import { authSelectors } from 'redux/auth';
 
