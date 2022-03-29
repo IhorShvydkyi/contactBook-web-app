@@ -1,28 +1,24 @@
-import { useSelector } from 'react-redux';
-// import Spinner from '../Spinner/Spinner';
-// import { ContactListStyled, ContactItem, Number } from './ContactsList.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { getVisibleContact } from 'redux/contacts/contacts-selectors';
 
-// export const ContactsList = () => {
+export const ContactsList = () => {
+  const items = useSelector(getVisibleContact);
+  const dispatch = useDispatch();
 
-//   return (
-//     <>
-//       {/* {isFetching && <Spinner />} */}
-//       {contacts && (
-//         <ul>
-//           {contactFilterList.map(item => (
-//             <li key={item.id}>
-//               <span>
-//                 {item.name}: {item.number}
-//               </span>
-//               <button type="button" onClick={() => deleteContact(item.id)}>
-//                 Delete
-//               </button>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </>
-//   );
-// };
-
-// export default ContactsList;
+  // const filteredContacts = items.filter(contact =>
+  //   contact.name.toLowerCase().includes(filter.toLowerCase()),
+  // );
+  return (
+    <>
+      <ul>
+        {items.map(({ id, name, number }) => (
+          <li key={id}>
+            <span>{name}</span>
+            <span>{number}</span>
+            <button type="button">Delete</button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};

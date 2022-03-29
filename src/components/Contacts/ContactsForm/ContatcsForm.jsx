@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { contactsOperations } from 'redux/contacts';
+import { getContacts } from 'redux/contacts/contacts-selectors';
 
 import { Form, Label } from '../../Forms/Forms.styled';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
 
   const handleChange = e => {
     switch (e.target.name) {
