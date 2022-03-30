@@ -57,6 +57,6 @@ password: "qweqwe123" -->
 
 1. direct current contact - make slice
 
-2. filter for contacts list
+2. filter for contacts list +
 
 3. privite and publics routes, redirects

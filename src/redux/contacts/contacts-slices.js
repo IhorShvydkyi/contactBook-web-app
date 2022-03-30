@@ -1,13 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 import contactsOperations from './contacts-operations';
 
-const initialState = { items: [], filter: '', isLoading: false, error: null };
+const initialState = {
+  items: [],
+  filter: '',
+  isLoading: false,
+  error: null,
+  showModal: false,
+  editContact: {},
+};
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
     updateFilter: (state, action) => {
       state.filter = action.payload;
+    },
+    openModal: (state, action) => {
+      state.showModal = true;
+      state.editContact = state.items.filter(
+        contact => contact.id === action.payload,
+      );
+    },
+    closeModal: (state, _) => {
+      state.showModal = false;
     },
   },
   extraReducers: {
@@ -20,6 +36,11 @@ const contactsSlice = createSlice({
     [contactsOperations.deleteContact.fulfilled](state, action) {
       state.items = state.items.filter(
         contact => contact.id !== action.payload,
+      );
+    },
+    [contactsOperations.updateContact.fulfilled](state, action) {
+      state.items = state.items.map(item =>
+        item.id === action.payload.id ? action.payload : item,
       );
     },
   },

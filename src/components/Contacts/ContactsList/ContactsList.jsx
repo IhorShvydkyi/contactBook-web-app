@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { authOperations } from 'redux/auth';
 import { contactsOperations } from 'redux/contacts';
-// import { getVisibleContact } from 'redux/contacts/contacts-selectors';
+import { openModal } from 'redux/contacts/contacts-slices';
 
 export const ContactsList = () => {
   const items = useSelector(state => state.contacts.items);
@@ -19,6 +18,9 @@ export const ContactsList = () => {
           <li key={id}>
             <span>{name}</span>
             <span>{number}</span>
+            <button type="submit" onClick={() => dispatch(openModal(id))}>
+              Edit
+            </button>
             <button
               type="button"
               onClick={() => dispatch(contactsOperations.deleteContact(id))}
