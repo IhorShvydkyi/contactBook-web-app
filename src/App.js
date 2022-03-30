@@ -11,6 +11,8 @@ import { LogInPage } from 'pages/LogInPage/LogInPage';
 import { RegisterPage } from 'pages/RegisterPage/RegisterPage';
 import { ContactsPage } from 'pages/ContactsPage/ContactsPage';
 import { authOperations } from 'redux/auth';
+import { PrivateRoute } from 'components/Routes/PrivateRoute';
+import { PublicRoute } from 'components/Routes/PublicRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,9 +27,31 @@ export const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="logIn" element={<LogInPage />}></Route>
-            <Route path="register" element={<RegisterPage />}></Route>
-            <Route path="contacts" element={<ContactsPage />}></Route>
+            <Route
+              path="logIn"
+              element={
+                <PublicRoute redirectPath="/contacts" restricted>
+                  <LogInPage />
+                </PublicRoute>
+              }
+            ></Route>
+            <Route
+              path="register"
+              element={
+                <PublicRoute restricted>
+                  <RegisterPage />
+                </PublicRoute>
+              }
+            ></Route>
+            {/* <Route path="contacts" element={<ContactsPage />}></Route> */}
+            <Route
+              path="contacts"
+              element={
+                <PrivateRoute redirectPath="/login">
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            ></Route>
           </Routes>
         </Suspense>
         {/* // <ToastContainer /> */}

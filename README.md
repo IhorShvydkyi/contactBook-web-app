@@ -55,7 +55,7 @@ password: "qweqwe123" -->
 
 6. refrech current contact + -->
 
-1. direct current contact - make slice
+1. direct current contact - make slice +
 
 2. filter for contacts list +
 

@@ -34,17 +34,9 @@ export const ContactsForm = () => {
     const nameToAdd = items.find(
       contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
-    // console.log(nameToAdd);
     if (nameToAdd) {
       return alert(`${name} is already in contacts.`);
     }
-
-    // if (contacts.find(contact => contact.name === name)) {
-    //   // toast(`Contact ${name} is already exists`);
-    //   setName('');
-    //   setNumber('');
-    //   return;
-    // }
     dispatch(contactsOperations.addContact({ name, number }));
     setName('');
     setNumber('');
