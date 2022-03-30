@@ -9,3 +9,7 @@ export const Label = styled.label`
   flex-direction: column;
   margin-bottom: 15px;
 `;
+
+export const Input = styled.input`
+  width: 320px;
+`;

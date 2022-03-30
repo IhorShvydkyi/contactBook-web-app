@@ -6,9 +6,9 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    // updateFilter: (state, action) => {
-    //   state.filter = action.payload;
-    // },
+    updateFilter: (state, action) => {
+      state.filter = action.payload;
+    },
   },
   extraReducers: {
     [contactsOperations.fetchContacts.fulfilled](state, action) {
@@ -24,5 +24,7 @@ const contactsSlice = createSlice({
     },
   },
 });
+
+export const { updateFilter, openModal, closeModal } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

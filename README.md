@@ -46,13 +46,17 @@ password: "qweqwe123" -->
 
 <!-- 1. redirect : login => contacts (loginform) / register => contacts
    (registerform) / logout => home (after logout button click) -->
+<!--
+2. contacts list - відображення при фетчі та після створення +
 
-2. contacts list - відображення при фетчі та після створення
+3. delete contact - make function on delet button click + -->
 
-3. delete contact - make function on delet button click
+<!-- 5. persist set +
 
-4. direct current contact - make slice
+6. refrech current contact + -->
 
-5. persist set
+1. direct current contact - make slice
 
-6. refrech current contact
+2. filter for contacts list
+
+3. privite and publics routes, redirects
