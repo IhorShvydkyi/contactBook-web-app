@@ -31,7 +31,7 @@ export const EditButton = styled.button`
   margin-right: 10px;
   border-radius: 5px;
   border: 1px solid #6b6b6b;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 234, 106, 0.4);
   color: white;
   cursor: pointer;
   &:active,
@@ -54,7 +54,7 @@ export const DeleteButton = styled.button`
   margin-right: auto;
   border-radius: 5px;
   border: 1px solid #6b6b6b;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 69, 0, 0.4);
   color: white;
   cursor: pointer;
   &:active,
