@@ -1,6 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { updateFilter } from 'redux/contacts/contacts-slices';
-import { Label, Input } from '../../Forms/Forms.styled';
+import {
+  FilterStyled,
+  Label,
+  Input,
+  FilterButton,
+  IconButton,
+} from './ContactsFilter.styled';
 export const ContactsFilter = () => {
   const dispatch = useDispatch();
 
@@ -9,7 +15,7 @@ export const ContactsFilter = () => {
   };
 
   return (
-    <>
+    <FilterStyled>
       <Label>
         Find your contact
         <Input
@@ -19,7 +25,10 @@ export const ContactsFilter = () => {
           autoComplete="off"
         />
       </Label>
-      <button type="submit">Find</button>
-    </>
+      {/* <FilterButton type="submit">
+        Find
+        <IconButton />
+      </FilterButton> */}
+    </FilterStyled>
   );
 };

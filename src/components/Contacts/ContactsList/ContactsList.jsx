@@ -1,6 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
 import { openModal } from 'redux/contacts/contacts-slices';
+import {
+  ContactListStyled,
+  ContactItem,
+  ContactItemName,
+  EditButton,
+  EditIconButton,
+  DeleteButton,
+  DeleteIconButton,
+} from './ContactsList.styled';
 
 export const ContactsList = () => {
   const items = useSelector(state => state.contacts.items);
@@ -13,23 +22,26 @@ export const ContactsList = () => {
 
   return (
     <>
-      <ul>
+      <ContactListStyled>
         {filteredContacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <span>{name}</span>
-            <span>{number}</span>
-            <button type="submit" onClick={() => dispatch(openModal(id))}>
+          <ContactItem key={id}>
+            <ContactItemName>
+              {name}: {number}{' '}
+            </ContactItemName>
+            <EditButton type="submit" onClick={() => dispatch(openModal(id))}>
               Edit
-            </button>
-            <button
+              <EditIconButton />
+            </EditButton>
+            <DeleteButton
               type="button"
               onClick={() => dispatch(contactsOperations.deleteContact(id))}
             >
               Delete
-            </button>
-          </li>
+              <DeleteIconButton />
+            </DeleteButton>
+          </ContactItem>
         ))}
-      </ul>
+      </ContactListStyled>
     </>
   );
 };

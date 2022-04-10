@@ -11,8 +11,9 @@ export const ContactsPage = () => {
   return (
     <ContactPageStyled>
       <ContactsForm />
-      {/* <ContactsList />
-      <ContactsFilter /> */}
+      <ContactsFilter />
+      <ContactsList />
+
       {showModal && <ContactEditModal />}
     </ContactPageStyled>
   );
