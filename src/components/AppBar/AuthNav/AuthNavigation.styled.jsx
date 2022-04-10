@@ -9,17 +9,22 @@ export const AuthNavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  font-size: 25px;
 `;
 
 export const AuthNavListItem = styled.li`
-  margin-right: 10px;
-  margin-bottom: 4px;
+  margin-right: 0px;
+  margin-bottom: 10px;
   &:not(:last-child) {
-    margin-right: 4px;
+    margin-right: 20px;
   }
 `;
 
 export const AuthNavLink = styled(NavLink)`
-  color: #fff;
   text-decoration: none;
+  color: #fff;
+  &:active,
+  &:hover {
+    color: #e6e5be;
+  }
 `;

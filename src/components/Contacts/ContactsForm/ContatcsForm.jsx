@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
 
-import { Form, Label } from '../../Forms/Forms.styled';
+import { Form, Label, Input, ContactFormButton } from './ContatcsForm.styled';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
@@ -46,7 +46,7 @@ export const ContactsForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label htmlFor="name">
         Name
-        <input
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -59,7 +59,7 @@ export const ContactsForm = () => {
 
       <Label htmlFor="password">
         Phone number
-        <input
+        <Input
           type="text	"
           name="number"
           required
@@ -67,7 +67,7 @@ export const ContactsForm = () => {
           onChange={handleChange}
         />
       </Label>
-      <button type="submit">Add to contact</button>
+      <ContactFormButton type="submit">Add to contact</ContactFormButton>
     </Form>
   );
 };

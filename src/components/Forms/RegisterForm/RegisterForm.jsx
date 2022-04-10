@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { authOperations } from 'redux/auth';
-import { Form, Label } from '../Forms.styled';
+import { Form, Label, Input, FormButton, IconButton } from '../Forms.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -37,12 +37,12 @@ export const RegisterForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label htmlFor="name">
         Name
-        <input type="text" name="name" value={name} onChange={handleChange} />
+        <Input type="text" name="name" value={name} onChange={handleChange} />
       </Label>
 
       <Label htmlFor="login">
         Email
-        <input
+        <Input
           type="email"
           name="email"
           value={email}
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
 
       <Label htmlFor="password">
         Password
-        <input
+        <Input
           type="password"
           name="password"
           value={password}
@@ -60,7 +60,10 @@ export const RegisterForm = () => {
         />
       </Label>
 
-      <button type="submit">Sign up</button>
+      <FormButton type="submit">
+        <IconButton />
+        Sign up
+      </FormButton>
     </Form>
   );
 };

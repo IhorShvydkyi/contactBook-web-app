@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ContactPageStyled = styled.div`
+export const RegisterPageStyled = styled.div`
   display: flex;
   justify-content: center;
 `;

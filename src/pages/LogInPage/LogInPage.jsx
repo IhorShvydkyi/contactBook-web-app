@@ -1,9 +1,10 @@
 import { LogInForm } from 'components/Forms/LogInForm/LogInForm';
+import { LogInPageStyled } from './LogInPage.styled';
 
 export const LogInPage = () => {
   return (
-    <div>
+    <LogInPageStyled>
       <LogInForm />
-    </div>
+    </LogInPageStyled>
   );
 };

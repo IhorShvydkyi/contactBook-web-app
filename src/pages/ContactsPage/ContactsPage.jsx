@@ -2,17 +2,18 @@ import { ContactEditModal } from 'components/Contacts/ContactEditModal/ContactEd
 import { ContactsFilter } from 'components/Contacts/ContactsFilter/ContactsFilter';
 import { ContactsForm } from 'components/Contacts/ContactsForm/ContatcsForm';
 import { ContactsList } from 'components/Contacts/ContactsList/ContactsList';
+import { ContactPageStyled } from './ContactsPage.styled';
 import { useSelector } from 'react-redux';
 
 export const ContactsPage = () => {
   const showModal = useSelector(state => state.contacts.showModal);
 
   return (
-    <div>
+    <ContactPageStyled>
       <ContactsForm />
-      <ContactsList />
-      <ContactsFilter />
+      {/* <ContactsList />
+      <ContactsFilter /> */}
       {showModal && <ContactEditModal />}
-    </div>
+    </ContactPageStyled>
   );
 };

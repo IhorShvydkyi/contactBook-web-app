@@ -9,17 +9,22 @@ export const NavList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  font-size: 25px;
 `;
 
 export const NavListItem = styled.li`
-  margin-right: 10px;
-  margin-bottom: 4px;
+  margin-right: 0px;
+  margin-bottom: 10px;
   &:not(:last-child) {
-    margin-right: 4px;
+    margin-right: 20px;
   }
 `;
 
 export const NavigationLink = styled(NavLink)`
-  color: #fff;
   text-decoration: none;
+  color: #fff;
+  &:active,
+  &:hover {
+    color: #e6e5be;
+  }
 `;
