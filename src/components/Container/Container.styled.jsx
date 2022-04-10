@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 
 export const MainContainer = styled.div`
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin: auto;
+  padding: 25px 20px;
+  border-radius: 10px;
 `;

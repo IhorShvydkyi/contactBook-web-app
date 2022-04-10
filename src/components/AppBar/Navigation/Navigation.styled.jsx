@@ -20,5 +20,6 @@ export const NavListItem = styled.li`
 `;
 
 export const NavigationLink = styled(NavLink)`
+  color: #fff;
   text-decoration: none;
 `;

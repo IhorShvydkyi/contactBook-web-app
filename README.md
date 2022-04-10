@@ -54,9 +54,9 @@ password: "qweqwe123" -->
 <!-- 5. persist set +
 
 6. refrech current contact + -->
-
+<!--
 1. direct current contact - make slice +
 
 2. filter for contacts list +
 
-3. privite and publics routes, redirects
+3. privite and publics routes, redirects + -->

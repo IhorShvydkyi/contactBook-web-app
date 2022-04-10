@@ -20,5 +20,6 @@ export const AuthNavListItem = styled.li`
 `;
 
 export const AuthNavLink = styled(NavLink)`
+  color: #fff;
   text-decoration: none;
 `;

@@ -7,6 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  font-weight: 600;
+  background-image: url(./images/mathias-p-r-reding-d8ZkNHhm4ZI-unsplash.jpg);
+  background-size: cover;
 }
 
 code {
@@ -18,4 +22,14 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+ul {
+  margin: 0;
+  padding: 0;
 }
