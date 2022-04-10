@@ -2,7 +2,13 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsOperations } from 'redux/contacts';
 
-import { Form, Label, Input, ContactFormButton } from './ContatcsForm.styled';
+import {
+  Form,
+  Label,
+  Input,
+  ContactFormButton,
+  IconButton,
+} from './ContatcsForm.styled';
 
 export const ContactsForm = () => {
   const [name, setName] = useState('');
@@ -67,7 +73,10 @@ export const ContactsForm = () => {
           onChange={handleChange}
         />
       </Label>
-      <ContactFormButton type="submit">Add to contact</ContactFormButton>
+      <ContactFormButton type="submit">
+        Add to contact
+        <IconButton />
+      </ContactFormButton>
     </Form>
   );
 };

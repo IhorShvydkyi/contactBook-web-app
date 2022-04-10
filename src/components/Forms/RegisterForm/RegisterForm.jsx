@@ -61,8 +61,8 @@ export const RegisterForm = () => {
       </Label>
 
       <FormButton type="submit">
-        <IconButton />
         Sign up
+        <IconButton />
       </FormButton>
     </Form>
   );

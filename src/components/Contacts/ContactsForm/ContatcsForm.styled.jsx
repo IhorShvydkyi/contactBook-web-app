@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { HiUserAdd } from 'react-icons/hi';
 
 export const Form = styled.form`
   width: 400px;
@@ -34,4 +35,8 @@ export const ContactFormButton = styled.button`
   &:hover {
     color: #e6e5be;
   }
+`;
+
+export const IconButton = styled(HiUserAdd)`
+  margin-left: 10px;
 `;

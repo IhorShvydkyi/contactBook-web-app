@@ -40,7 +40,7 @@ export const FormButton = styled.button`
 `;
 
 export const IconButton = styled(BiLogInCircle)`
-  margin-right: 5px;
+  margin-left: 10px;
 `;
 
 export const RedirectMessage = styled.p`

@@ -61,8 +61,8 @@ export const LogInForm = () => {
           />
         </Label>
         <FormButton type="submit">
-          <IconButton />
           Log In
+          <IconButton />
         </FormButton>
       </Form>
       <RedirectMessage>
