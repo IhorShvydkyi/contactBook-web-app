@@ -4,7 +4,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 
 export const ContactListStyled = styled.ul`
   margin: 0 auto;
-  width: 400px;
+  width: auto;
   /* display: flex;
   flex-direction: column; */
 `;

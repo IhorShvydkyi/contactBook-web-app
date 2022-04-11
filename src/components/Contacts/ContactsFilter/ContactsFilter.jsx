@@ -12,7 +12,7 @@ export const ContactsFilter = () => {
 
   const handleChange = e => {
     dispatch(updateFilter(e.currentTarget.value));
-  };
+    };
 
   return (
     <FilterStyled>

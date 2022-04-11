@@ -60,3 +60,15 @@ password: "qweqwe123" -->
 2. filter for contacts list +
 
 3. privite and publics routes, redirects + -->
+
+1. add checking numbers in the input
+
+2. modal window
+
+3. check password length
+
+4. natifications: password length, contact already exist(checing js), contact
+   add
+
+5. errors: incorect password(or email doesn't exist), redirect on main after
+   crush

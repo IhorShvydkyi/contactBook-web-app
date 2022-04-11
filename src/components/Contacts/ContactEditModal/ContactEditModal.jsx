@@ -3,6 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { contactsOperations } from 'redux/contacts';
 import { closeModal } from 'redux/contacts/contacts-slices';
+import {
+  FormModal,
+  LabelModal,
+  InputModal,
+  SaveButton,
+  ExitButton,
+  Overlay,
+  Modal,
+} from './ContactEditModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -35,35 +44,42 @@ export const ContactEditModal = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(contactsOperations.updateContact({ id, name, number }));
-    dispatch(closeModal);
+    dispatch(closeModal());
   };
 
   return createPortal(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="">
-          {' '}
-          Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-        <label htmlFor="">
-          {' '}
-          Number
-          <input
-            type="text"
-            name="number"
-            value={number}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit" onClick={handleSubmit}>
-          Save edit contact
-        </button>
-        <button type="submit" onClick={() => dispatch(closeModal())}>
-          Exit
-        </button>
-      </form>
-    </div>,
+    <Overlay>
+      <Modal>
+        <FormModal onSubmit={handleSubmit}>
+          <LabelModal htmlFor="">
+            {' '}
+            Name
+            <InputModal
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </LabelModal>
+          <LabelModal htmlFor="">
+            {' '}
+            Number
+            <InputModal
+              type="text"
+              name="number"
+              value={number}
+              onChange={handleChange}
+            />
+          </LabelModal>
+          <SaveButton type="submit" onClick={handleSubmit}>
+            Save edit contact
+          </SaveButton>
+          <ExitButton type="submit" onClick={() => dispatch(closeModal())}>
+            Exit
+          </ExitButton>
+        </FormModal>
+      </Modal>
+    </Overlay>,
     modalRoot,
   );
 };
