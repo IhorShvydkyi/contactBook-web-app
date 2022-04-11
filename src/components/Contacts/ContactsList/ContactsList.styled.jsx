@@ -5,8 +5,6 @@ import { AiOutlineDelete } from 'react-icons/ai';
 export const ContactListStyled = styled.ul`
   margin: 0 auto;
   width: auto;
-  /* display: flex;
-  flex-direction: column; */
 `;
 export const ContactItem = styled.li`
   display: flex;
@@ -38,6 +36,11 @@ export const EditButton = styled.button`
   &:hover {
     color: #e6e5be;
   }
+`;
+
+export const ContactsListEmptyMessage = styled.p`
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 export const EditIconButton = styled(FiEdit)`

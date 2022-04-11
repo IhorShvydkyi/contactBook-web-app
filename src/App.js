@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { lazy, Suspense } from 'react';
-// import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 // import Loader from 'react-loader-spinner';
 import { Container } from './components/Container/Container';
 import { AppBar } from 'components/AppBar/AppBar';
@@ -43,7 +43,6 @@ export const App = () => {
                 </PublicRoute>
               }
             ></Route>
-            {/* <Route path="contacts" element={<ContactsPage />}></Route> */}
             <Route
               path="contacts"
               element={
@@ -54,7 +53,7 @@ export const App = () => {
             ></Route>
           </Routes>
         </Suspense>
-        {/* // <ToastContainer /> */}
+        <ToastContainer />
       </Container>
     </>
   );

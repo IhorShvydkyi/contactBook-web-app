@@ -22,26 +22,30 @@ export const ContactsList = () => {
 
   return (
     <>
-      <ContactListStyled>
-        {filteredContacts.map(({ id, name, number }) => (
-          <ContactItem key={id}>
-            <ContactItemName>
-              {name}: {number}{' '}
-            </ContactItemName>
-            <EditButton type="submit" onClick={() => dispatch(openModal(id))}>
-              Edit
-              <EditIconButton />
-            </EditButton>
-            <DeleteButton
-              type="button"
-              onClick={() => dispatch(contactsOperations.deleteContact(id))}
-            >
-              Delete
-              <DeleteIconButton />
-            </DeleteButton>
-          </ContactItem>
-        ))}
-      </ContactListStyled>
+      {filteredContacts.length === 0 ? (
+        <p>Oops, there is no such contact in your phone!</p>
+      ) : (
+        <ContactListStyled>
+          {filteredContacts.map(({ id, name, number }) => (
+            <ContactItem key={id}>
+              <ContactItemName>
+                {name}: {number}{' '}
+              </ContactItemName>
+              <EditButton type="submit" onClick={() => dispatch(openModal(id))}>
+                Edit
+                <EditIconButton />
+              </EditButton>
+              <DeleteButton
+                type="button"
+                onClick={() => dispatch(contactsOperations.deleteContact(id))}
+              >
+                Delete
+                <DeleteIconButton />
+              </DeleteButton>
+            </ContactItem>
+          ))}
+        </ContactListStyled>
+      )}
     </>
   );
 };
