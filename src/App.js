@@ -1,9 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
-// import Loader from 'react-loader-spinner';
 import { Container } from './components/Container/Container';
 import { AppBar } from 'components/AppBar/AppBar';
 import { HomePage } from 'pages/HomePage/HomePage';
@@ -16,7 +15,6 @@ import { PublicRoute } from 'components/Routes/PublicRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const { LogInPage } = lazy(() => import('./pages/LogInPage/LogInPage'));
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
