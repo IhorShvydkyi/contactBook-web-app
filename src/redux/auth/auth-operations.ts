@@ -4,7 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const token = {
-  set(token) {
+  set(token: any) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
@@ -46,9 +46,11 @@ const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
+    // @ts-expect-error TS(2571): Object is of type 'unknown'.
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
+      // @ts-expect-error TS(2554): Expected 1 arguments, but got 0.
       return thunkAPI.rejectWithValue();
     }
 

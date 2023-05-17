@@ -19,6 +19,7 @@ const contactsSlice = createSlice({
     openModal: (state, action) => {
       state.showModal = true;
       state.editContact = state.items.filter(
+        // @ts-expect-error TS(2339): Property 'id' does not exist on type 'never'.
         contact => contact.id === action.payload,
       );
     },
@@ -27,20 +28,23 @@ const contactsSlice = createSlice({
     },
   },
   extraReducers: {
-    [contactsOperations.fetchContacts.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [contactsOperations.fetchContacts.fulfilled](state: any, action: any) {
       state.items = action.payload;
     },
-    [contactsOperations.addContact.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [contactsOperations.addContact.fulfilled](state: any, action: any) {
       state.items.push(action.payload);
     },
-    [contactsOperations.deleteContact.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [contactsOperations.deleteContact.fulfilled](state: any, action: any) {
       state.items = state.items.filter(
-        contact => contact.id !== action.payload,
+        (contact: any) => contact.id !== action.payload,
       );
     },
-    [contactsOperations.updateContact.fulfilled](state, action) {
-      state.items = state.items.map(item =>
-        item.id === action.payload.id ? action.payload : item,
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [contactsOperations.updateContact.fulfilled](state: any, action: any) {
+      state.items = state.items.map((item: any) => item.id === action.payload.id ? action.payload : item,
       );
     },
   },

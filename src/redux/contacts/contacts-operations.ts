@@ -8,6 +8,7 @@ const fetchContacts = createAsyncThunk(
       const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
+      // @ts-expect-error TS(2571): Object is of type 'unknown'.
       return rejectWithValue(error.message);
     }
   },
@@ -20,6 +21,7 @@ const addContact = createAsyncThunk(
       const { data } = await axios.post('/contacts', contact);
       return data;
     } catch (error) {
+      // @ts-expect-error TS(2571): Object is of type 'unknown'.
       return rejectWithValue(error.message);
     }
   },
@@ -32,6 +34,7 @@ const deleteContact = createAsyncThunk(
       const { status } = await axios.delete(`/contacts/${contactId}`);
       return contactId;
     } catch (error) {
+      // @ts-expect-error TS(2571): Object is of type 'unknown'.
       return rejectWithValue(error.message);
     }
   },
@@ -39,11 +42,13 @@ const deleteContact = createAsyncThunk(
 
 const updateContact = createAsyncThunk(
   '/contacts/updateContact',
+  // @ts-expect-error TS(2339): Property 'id' does not exist on type 'void'.
   async ({ id, name, number }, { rejectWithValue }) => {
     try {
       const { data } = await axios.patch(`/contacts/${id}`, { name, number });
       return data;
     } catch (error) {
+      // @ts-expect-error TS(2571): Object is of type 'unknown'.
       return rejectWithValue(error.message);
     }
   },

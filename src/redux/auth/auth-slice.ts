@@ -7,26 +7,31 @@ const initialState = {
   isLoggedIn: false,
 };
 
+// @ts-expect-error TS(2345): Argument of type '{ name: "auth"; initialState: { ... Remove this comment to see the full error message
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
-    [authOperations.register.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [authOperations.register.fulfilled](state: any, action: any) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    [authOperations.login.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [authOperations.login.fulfilled](state: any, action: any) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    [authOperations.logout.fulfilled](state, _) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [authOperations.logout.fulfilled](state: any, _: any) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
     },
-    [authOperations.fetchCurrentUser.fulfilled](state, action) {
+    // @ts-expect-error TS(2464): A computed property name must be of type 'string',... Remove this comment to see the full error message
+    [authOperations.fetchCurrentUser.fulfilled](state: any, action: any) {
       state.user = action.payload;
       state.isLoggedIn = true;
     },

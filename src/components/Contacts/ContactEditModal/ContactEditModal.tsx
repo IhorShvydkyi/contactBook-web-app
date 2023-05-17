@@ -1,7 +1,9 @@
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+// @ts-expect-error TS(2307): Cannot find module 'redux/contacts' or its corresp... Remove this comment to see the full error message
 import { contactsOperations } from 'redux/contacts';
+// @ts-expect-error TS(2307): Cannot find module 'redux/contacts/contacts-slices... Remove this comment to see the full error message
 import { closeModal } from 'redux/contacts/contacts-slices';
 import {
   FormModal,
@@ -20,6 +22,7 @@ export const ContactEditModal = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  // @ts-expect-error TS(2339): Property 'contacts' does not exist on type 'Defaul... Remove this comment to see the full error message
   const editContact = useSelector(state => state.contacts.editContact);
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export const ContactEditModal = () => {
     setNumber(editContact[0].number);
   }, [editContact]);
 
-  const handleChange = e => {
+  const handleChange = (e: any) => {
     switch (e.target.name) {
       case 'name':
         setName(e.target.value);
@@ -41,7 +44,7 @@ export const ContactEditModal = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(contactsOperations.updateContact({ id, name, number }));
     dispatch(closeModal());
@@ -80,6 +83,7 @@ export const ContactEditModal = () => {
         </FormModal>
       </Modal>
     </Overlay>,
+    // @ts-expect-error TS(2345): Argument of type 'Element | null' is not assignabl... Remove this comment to see the full error message
     modalRoot,
   );
 };
