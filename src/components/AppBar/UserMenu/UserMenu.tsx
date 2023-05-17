@@ -17,6 +17,7 @@ export const UserMenu = () => {
   return (
     <UserMenuStyled>
       // @ts-expect-error TS(2746): This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message
+      // @ts-expect-error TS(2746): This JSX tag's 'children' prop expects a single ch... Remove this comment to see the full error message
       <UserMenuSpan>
         Welcome, {name}{' '}
         <span role="img" aria-label="hello">
