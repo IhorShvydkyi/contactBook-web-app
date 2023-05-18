@@ -1,7 +1,7 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// @ts-expect-error TS(2307): Cannot find module 'redux/contacts' or its corresp... Remove this comment to see the full error message
-import { contactsOperations } from 'redux/contacts';
+import { contactsOperations } from '../../../redux/contacts';
 
 import {
   Form,

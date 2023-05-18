@@ -1,10 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-// @ts-expect-error TS(2307): Cannot find module 'redux/contacts' or its corresp... Remove this comment to see the full error message
-import { contactsOperations } from 'redux/contacts';
-// @ts-expect-error TS(2307): Cannot find module 'redux/contacts/contacts-slices... Remove this comment to see the full error message
-import { closeModal } from 'redux/contacts/contacts-slices';
+import { contactsOperations } from '../../../redux/contacts';
+import { closeModal } from '../../../redux/contacts/contacts-slices';
 import {
   FormModal,
   LabelModal,
@@ -14,6 +12,7 @@ import {
   Overlay,
   Modal,
 } from './ContactEditModal.styled';
+import React from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -47,7 +46,7 @@ export const ContactEditModal = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(contactsOperations.updateContact({ id, name, number }));
-    dispatch(closeModal());
+    dispatch(closeModal({}));
   };
 
   return createPortal(
@@ -77,7 +76,7 @@ export const ContactEditModal = () => {
           <SaveButton type="submit" onClick={handleSubmit}>
             Save edit contact
           </SaveButton>
-          <ExitButton type="submit" onClick={() => dispatch(closeModal())}>
+          <ExitButton type="submit" onClick={() => dispatch(closeModal({}))}>
             Exit
           </ExitButton>
         </FormModal>

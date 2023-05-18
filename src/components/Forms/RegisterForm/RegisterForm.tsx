@@ -1,8 +1,9 @@
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
-// @ts-expect-error TS(2307): Cannot find module 'redux/auth' or its correspondi... Remove this comment to see the full error message
-import { authOperations } from 'redux/auth';
+
+import { authOperations } from '../../../redux/auth';
 import { Form, Label, Input, FormButton, IconButton } from '../Forms.styled';
 
 export const RegisterForm = () => {
@@ -12,9 +13,7 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({
-    target: { name, value }
-  }: any) => {
+  const handleChange = ({ target: { name, value } }: any) => {
     switch (name) {
       case 'name':
         return setName(value);

@@ -1,14 +1,28 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+type UpdateContactArgs = {
+  id: string;
+  name: string;
+  number: string;
+};
+
+type AddContactArgs = {
+  name: string;
+  number: string;
+};
+
+type DeleteContactArgs = {
+  contactId: string;
+};
+
 const fetchContacts = createAsyncThunk(
   '/contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axios.get('/contacts');
       return data;
-    } catch (error) {
-      // @ts-expect-error TS(2571): Object is of type 'unknown'.
+    } catch (error: any) {
       return rejectWithValue(error.message);
     }
   },
@@ -16,12 +30,11 @@ const fetchContacts = createAsyncThunk(
 
 const addContact = createAsyncThunk(
   '/contacts/addContact',
-  async (contact, { rejectWithValue }) => {
+  async (contact: AddContactArgs, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/contacts', contact);
       return data;
-    } catch (error) {
-      // @ts-expect-error TS(2571): Object is of type 'unknown'.
+    } catch (error: any) {
       return rejectWithValue(error.message);
     }
   },
@@ -29,12 +42,11 @@ const addContact = createAsyncThunk(
 
 const deleteContact = createAsyncThunk(
   '/contacts/deleteContact',
-  async (contactId, { rejectWithValue }) => {
+  async (contactId: DeleteContactArgs, { rejectWithValue }) => {
     try {
       const { status } = await axios.delete(`/contacts/${contactId}`);
       return contactId;
-    } catch (error) {
-      // @ts-expect-error TS(2571): Object is of type 'unknown'.
+    } catch (error: any) {
       return rejectWithValue(error.message);
     }
   },
@@ -42,13 +54,11 @@ const deleteContact = createAsyncThunk(
 
 const updateContact = createAsyncThunk(
   '/contacts/updateContact',
-  // @ts-expect-error TS(2339): Property 'id' does not exist on type 'void'.
-  async ({ id, name, number }, { rejectWithValue }) => {
+  async ({ id, name, number }: UpdateContactArgs, { rejectWithValue }) => {
     try {
       const { data } = await axios.patch(`/contacts/${id}`, { name, number });
       return data;
-    } catch (error) {
-      // @ts-expect-error TS(2571): Object is of type 'unknown'.
+    } catch (error: any) {
       return rejectWithValue(error.message);
     }
   },

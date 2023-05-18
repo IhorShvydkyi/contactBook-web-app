@@ -1,6 +1,7 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
-// @ts-expect-error TS(2307): Cannot find module 'redux/contacts/contacts-slices... Remove this comment to see the full error message
-import { updateFilter } from 'redux/contacts/contacts-slices';
+
+import { updateFilter } from '../../../redux/contacts/contacts-slices';
 import {
   FilterStyled,
   Label,
@@ -15,7 +16,7 @@ export const ContactsFilter = () => {
 
   const handleChange = (e: any) => {
     dispatch(updateFilter(e.currentTarget.value));
-    };
+  };
 
   return (
     <FilterStyled>
