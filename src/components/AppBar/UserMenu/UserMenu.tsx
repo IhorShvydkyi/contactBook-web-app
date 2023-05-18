@@ -1,5 +1,6 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSelectors, authOperations } from 'redux/auth';
+import { authSelectors, authOperations } from '../../../redux/auth';
 import {
   UserMenuStyled,
   UserMenuSpan,
@@ -10,6 +11,7 @@ import {
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
+
   const allowedEmoji = [...'😊🙃🤪🤓🤯😴💩👻👽🤖👾👐🖖✌️🤟🤘🤙👋🐭🦕🦖🐉'];
 
   return (

@@ -1,6 +1,7 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactsOperations } from 'redux/contacts';
+import { contactsOperations } from '../../../redux/contacts';
 
 import {
   Form,
@@ -14,7 +15,9 @@ export const ContactsForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  // @ts-expect-error TS(2339): Property 'contacts' does not exist on type 'Defaul... Remove this comment to see the full error message
   const items = useSelector(state => state.contacts.items);
+  // @ts-expect-error TS(2339): Property 'auth' does not exist on type 'DefaultRoo... Remove this comment to see the full error message
   const user = useSelector(state => state.auth.user);
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export const ContactsForm = () => {
     }
   }, [dispatch, user]);
 
-  const handleChange = e => {
+  const handleChange = (e: any) => {
     switch (e.target.name) {
       case 'name':
         setName(e.target.value);
@@ -35,10 +38,10 @@ export const ContactsForm = () => {
         return;
     }
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const nameToAdd = items.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase(),
+      (contact: any) => contact.name.toLowerCase() === name.toLowerCase(),
     );
     if (nameToAdd) {
       return alert(`${name} is already in contacts.`);

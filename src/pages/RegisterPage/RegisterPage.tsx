@@ -1,3 +1,4 @@
+import React from 'react';
 import { RegisterForm } from '../../components/Forms/RegisterForm/RegisterForm';
 import { RegisterPageStyled } from './RegisterPage.styled';
 

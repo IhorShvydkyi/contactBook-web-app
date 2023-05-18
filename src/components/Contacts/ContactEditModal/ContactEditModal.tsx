@@ -1,8 +1,8 @@
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { contactsOperations } from 'redux/contacts';
-import { closeModal } from 'redux/contacts/contacts-slices';
+import { contactsOperations } from '../../../redux/contacts';
+import { closeModal } from '../../../redux/contacts/contacts-slices';
 import {
   FormModal,
   LabelModal,
@@ -12,6 +12,7 @@ import {
   Overlay,
   Modal,
 } from './ContactEditModal.styled';
+import React from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -20,6 +21,7 @@ export const ContactEditModal = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  // @ts-expect-error TS(2339): Property 'contacts' does not exist on type 'Defaul... Remove this comment to see the full error message
   const editContact = useSelector(state => state.contacts.editContact);
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export const ContactEditModal = () => {
     setNumber(editContact[0].number);
   }, [editContact]);
 
-  const handleChange = e => {
+  const handleChange = (e: any) => {
     switch (e.target.name) {
       case 'name':
         setName(e.target.value);
@@ -41,10 +43,10 @@ export const ContactEditModal = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(contactsOperations.updateContact({ id, name, number }));
-    dispatch(closeModal());
+    dispatch(closeModal({}));
   };
 
   return createPortal(
@@ -74,12 +76,13 @@ export const ContactEditModal = () => {
           <SaveButton type="submit" onClick={handleSubmit}>
             Save edit contact
           </SaveButton>
-          <ExitButton type="submit" onClick={() => dispatch(closeModal())}>
+          <ExitButton type="submit" onClick={() => dispatch(closeModal({}))}>
             Exit
           </ExitButton>
         </FormModal>
       </Modal>
     </Overlay>,
+    // @ts-expect-error TS(2345): Argument of type 'Element | null' is not assignabl... Remove this comment to see the full error message
     modalRoot,
   );
 };

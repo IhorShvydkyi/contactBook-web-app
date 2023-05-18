@@ -1,8 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
-import { authOperations } from 'redux/auth';
+
+import { authOperations } from '../../../redux/auth';
 import {
   Form,
   Label,
@@ -19,7 +21,7 @@ export const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }: any) => {
     switch (name) {
       case 'email':
         return setEmail(value);
@@ -30,7 +32,7 @@ export const LogInForm = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(authOperations.login({ email, password }));
     setEmail('');

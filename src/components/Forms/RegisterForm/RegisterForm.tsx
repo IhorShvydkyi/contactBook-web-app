@@ -1,7 +1,9 @@
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
-import { authOperations } from 'redux/auth';
+
+import { authOperations } from '../../../redux/auth';
 import { Form, Label, Input, FormButton, IconButton } from '../Forms.styled';
 
 export const RegisterForm = () => {
@@ -11,7 +13,7 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }: any) => {
     switch (name) {
       case 'name':
         return setName(value);
@@ -24,7 +26,7 @@ export const RegisterForm = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
     setName('');

@@ -1,6 +1,7 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactsOperations } from 'redux/contacts';
-import { openModal } from 'redux/contacts/contacts-slices';
+import { contactsOperations } from '../../../redux/contacts';
+import { openModal } from '../../../redux/contacts/contacts-slices';
 import {
   ContactListStyled,
   ContactItem,
@@ -12,11 +13,13 @@ import {
 } from './ContactsList.styled';
 
 export const ContactsList = () => {
+  // @ts-expect-error TS(2339): Property 'contacts' does not exist on type 'Defaul... Remove this comment to see the full error message
   const items = useSelector(state => state.contacts.items);
+  // @ts-expect-error TS(2339): Property 'contacts' does not exist on type 'Defaul... Remove this comment to see the full error message
   const filter = useSelector(state => state.contacts.filter);
 
   const dispatch = useDispatch();
-  const filteredContacts = items.filter(contact =>
+  const filteredContacts = items.filter((contact: any) =>
     contact.name.toLowerCase().includes(filter.toLowerCase()),
   );
 
@@ -26,7 +29,7 @@ export const ContactsList = () => {
         <p>Oops, there is no such contact in your phone!</p>
       ) : (
         <ContactListStyled>
-          {filteredContacts.map(({ id, name, number }) => (
+          {filteredContacts.map(({ id, name, number }: any) => (
             <ContactItem key={id}>
               <ContactItemName>
                 {name}: {number}{' '}
